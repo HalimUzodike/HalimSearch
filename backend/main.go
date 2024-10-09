@@ -32,7 +32,7 @@ func main() {
 
 	routes.SetRoutes(app)
 
-	// Start server and listen for shutdown command
+	// Start server and listen for a shutdown command
 	go func() {
 		if err := app.Listen(port); err != nil {
 			log.Panic(err)
