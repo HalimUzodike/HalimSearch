@@ -42,7 +42,10 @@ func main() {
 	c := make(chan os.Signal, 1)                    // Create a channel to listen for signals. 1 is the buffer size
 	signal.Notify(c, os.Interrupt, syscall.SIGTERM) // Listen for interrupt signal or SIGTERM
 
-	<-c            // Block the main thread until interrupted
-	app.Shutdown() // Shutdown server
+	<-c // Block the main thread until interrupted
+	err := app.Shutdown()
+	if err != nil {
+		return
+	} // Shutdown server
 	fmt.Println("Shutting down server")
 }
