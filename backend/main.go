@@ -30,7 +30,7 @@ func main() {
 
 	app.Use(compress.New()) // Use compression middleware
 
-	routes.SetRoutes(app)
+	routes.SetRoutes(app) // Sets up route definitions
 
 	// Start server and listen for a shutdown command
 	go func() {
